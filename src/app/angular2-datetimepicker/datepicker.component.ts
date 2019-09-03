@@ -269,6 +269,9 @@ export class DatePicker implements OnInit, ControlValueAccessor {
     setDay(evt: any, type: string) {
         if (evt.target.innerHTML) {
             var selectedDay = new Date(evt.target.getAttribute('data-label'));
+            selectedDay.setHours(this.hourValue);
+            selectedDay.setMinutes(this.minValue);
+            selectedDay.setSeconds(this.secValue);
             if (type == 'range') {
                 if (this.rangeSelected == 0) {
                     this.setStartDate(selectedDay);
